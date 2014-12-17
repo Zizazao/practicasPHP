@@ -6,7 +6,7 @@
 		</head>
 		<body>
 			<?php
-
+				// cometario para git!!!!!
 				require("connection_info.php");
 				/* Conectando a base de datos */
 				$linkID1 = mysql_connect($dbhost,$dbuser,$dbpass);
