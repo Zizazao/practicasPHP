@@ -1,7 +1,7 @@
 <?php
 	require("connection_info.php");
 	session_start();
-		
+		// iniciamos sesion y tal
 		if (isset ($_POST["req_access"])) {
 			if($_POST["req_access"]=="Yes"){
 			$linkID1 = mysql_connect($dbhost,$dbuser,$dbpass);
