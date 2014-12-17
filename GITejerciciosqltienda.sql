@@ -60,8 +60,8 @@ select count(c), count(distinct(t)), sum(cantidad) from envios where p = 'p2';
 select c, t, sum(cantidad) from envios as t1
 inner join (select sum(cantidad) from envios as t3) as t2 group by c, t;
 -- 16 21 filas BIEN!
-select t1.t from articulos as t1 inner join articulos on (t1.ciudad <> 'madrid')
-inner join proveedores on (t1.ciudad <> proveedores.ciudad)
+select t1.t from envios as t1 inner join proveedores on (proveedores.ciudad <> 'madrid')
+inner join articulos as t2 on (proveedores.ciudad <> t2.ciudad)
 group by t1.t;
 -- 17 todos menos t6
 select p from envios;
