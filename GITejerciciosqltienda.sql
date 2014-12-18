@@ -67,7 +67,16 @@ group by t1.t;
 -- 17 todos menos t6
 select distinct envios.p from envios inner join componentes where color = 'rojo';
 -- 18 p1 p2 p3 p4 p5
-
+select c from envios group by c having avg(cantidad) > 320;
 -- 19 todos menos t7
+select p, avg(cantidad) as a1 from envios where a1 = (select );
 -- 20 p1 p2 p5
+select c from envios where t = 't2' and p = 'p2';
+-- 21
+select * from envios 
+inner join componentes where (color != 'rojo') 
+group by componentes.c;
+-- 22
+
+-- 23
 
