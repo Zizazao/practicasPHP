@@ -57,15 +57,17 @@ select count(c), count(distinct(t)), sum(cantidad) from envios where p = 'p2';
 -- 15
 
 -- A PARTIR DE AQUI TRABAJO EN GIT
-select c, t, sum(cantidad) from envios as t1
-inner join (select sum(cantidad) from envios as t3) as t2 group by c, t;
+select c, t, sum(cantidad) from envios
+group by c, t;
 -- 16 21 filas BIEN!
-select t1.t from envios as t1 inner join proveedores on (proveedores.ciudad <> 'madrid')
+select t1.t from envios as t1 
+inner join proveedores on (proveedores.ciudad <> 'madrid')
 inner join articulos as t2 on (proveedores.ciudad <> t2.ciudad)
 group by t1.t;
 -- 17 todos menos t6
-select p from envios;
+select distinct envios.p from envios inner join componentes where color = 'rojo';
 -- 18 p1 p2 p3 p4 p5
+
 -- 19 todos menos t7
 -- 20 p1 p2 p5
 
