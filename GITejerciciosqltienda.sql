@@ -38,10 +38,19 @@ where componentes.color = 'rojo' and
 -- 10 repasar
 select c  from envios 
 where (envios.t) in (select t from articulos where ciudad = 'sevilla')
-and (envios.p) in (select p from proveedores where ciudad = 'sevilla')group by envios.c;
+and (envios.p) in (select p from proveedores where ciudad = 'sevilla');
 -- 11 c6
+select c from envios
+inner join articulos on articulos.t = envios.t
+inner join proveedores on proveedores.p = envios.p
+where articulos.ciudad = 'sevilla' and proveedores.ciudad = 'sevilla';
+-- 11.1
 select t from envios where p = 'p1';
+-- mal
 -- 12 t1 t4
+select distinct t from envios 
+where c in(select distinct c from envios where p = 'p1');
+-- 12.1
 select proveedores.ciudad, componentes.c, articulos.ciudad 
 from proveedores inner join componentes 
 on (proveedores.ciudad = componentes.ciudad)
